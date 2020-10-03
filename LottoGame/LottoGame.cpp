@@ -58,6 +58,12 @@ int main(){
 		cout << "로또 번호를 적어주세요(1~45의 숫자 중 6개) : ";
 		for (int i = 0; i < 6; i++) {
 			cin >> InputNumber[i];
+			for (int j = 0; j < i; j++) {
+				if (InputNumber[i] == InputNumber[j]) {
+					cout << "중복 된 값을 입력하셨습니다. 다시 입력해주세요. ";
+					i--;
+				}
+			}
 
 			if (InputNumber[i] < 1 || InputNumber[i]>45) {
 				cout << "잘못된 값을 입력하셨습니다 1~45 사이의 숫자를 입력해주세요. : ";
@@ -72,6 +78,15 @@ int main(){
 	Shuffle();
 	Sort(LottoNumber, 6);
 	Sort(InputNumber, 6);
+
+	//입력한 번호를 출력
+	cout << "입력번호는  ";
+	for (int i = 0; i < 6; i++) {
+		cout << InputNumber[i] << " ";
+	}
+	cout << "입니다.";
+	cout << "" << endl;
+
 
 	//정렬된 추첨번호를 출력
 	cout << "추첨번호는  ";
